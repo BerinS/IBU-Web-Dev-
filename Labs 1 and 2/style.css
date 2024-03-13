@@ -1,0 +1,50 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+.lato-regular{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    background-color: #85AFD4;
+    font-family: "Lato", sans-serif;
+    color: white;
+    display: inline-block;
+    text-align: center;
+}
+
+h1, h2, h3{
+    font-weight: bold;
+}
+
+a{
+    font-weight: bold;
+}
+
+.bordered tr, th, table{
+    border: 2px solid;
+    border-color: white;
+    border-collapse: collapse;
+    
+}
+
+.regtable tr, th, table{
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+
+}
+
+.submit_button{
+    background-color: #E47272;
+    color: white;
+    border-radius: 20px;
+    border: none;
+}
+
+form{
+    display: inline-block;
+}
+
