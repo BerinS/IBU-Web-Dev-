@@ -1,11 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Dev Project 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/template_styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
+
+    <title>Berin Portfolio</title>
+    <link rel="icon" href="images/icon2.png" type="image/x-icon">
 </head>
-<body>
-  <p>Foundations of Front-end Web Development project 2</p>
+
+<body>       
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
+    <div class="container d-flex justify-content-between">      
+        <div class="me-auto p-2 bd-highlight">
+          <a class="navbar-brand" href="#" id="berin_nav_text" style="font-size: 150%;">Berin</a>
+        </div>
+
+        <div class="p-2 bd-highlight">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">              
+              <li class="nav-item">
+                <a class="nav-link" href="#about_section">About</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link" href="#portfolio_section">
+                  Projects
+                </a>                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact_form_section">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>       
+    </div>
+  </nav>
+
+<!-- start header -->
+  <header id="header" class="home">
+    <div class="container">
+      <div class="header-content">
+        <p id="greeting1"></p>
+        <div id="greeting-subsection">
+          <div class="row">
+            <div class="col-6 col-md-3" id="icon1">
+              <ion-icon name="film-outline" class="header_icon"></ion-icon>
+              <p class="icon_text">Video Editing</p>                               
+            </div>
+            <div class="col-6 col-md-3" id="icon2">
+              <ion-icon name="cube-outline"  class="header_icon"></ion-icon>
+              <p class="icon_text">3D Modeling & Animation</p>
+          </div>
+            <div class="col-6 col-md-3" id="icon3">
+                <ion-icon name="game-controller-outline"  class="header_icon"></ion-icon>
+                <p class="icon_text">Game Design</p>
+            </div>
+            <div class="col-6 col-md-3" id="icon4">
+                <ion-icon name="bulb-outline"  class="header_icon"></ion-icon>
+                <p class="icon_text">Branding</p>
+            </div>          
+          </div>            
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- End header -->
+
+<!-- About -->
+<section style="background-color: white;">
+  <div class="container" id="about_section">
+    <div class="row">
+      <div class="col-md-6 d-flex justify-content-center align-items-center">  
+        <img src="images/Portrait image.png" data-tilt data-tilt-max="10" data-tilt-speed="1000" data-tilt-scale="1.06" id="portrait_image">     
+      </div>
+      <div class="col-md-6 d-flex justify-content-center align-items-center" >
+          <div id="about_section_card" class="card" data-tilt data-tilt-max="8" data-tilt-speed="1000" data-tilt-scale="1.02">
+            <p class="section_title">About Me</p>
+            <p id="about_text">
+              Hello and welcome to my website! My name is Berin, and I'm a multimedia creator based in Sarajevo, Bosnia and Herzegovina. With years of experience working on many different  projects, I've honed my skills in video editing, graphic design, branding, and game development.
+              Whether it's crafting compelling visual narratives through video, designing eye-catching graphics and logos, or developing immersive gaming experiences, I'm passionate about bringing ideas to life through my work.
+            </p>
+          </div>        
+      </div>      
+  </div>
+  
+</section>
+  
+<!-- End About -->
+
+<!-- Portfolio -->
+  <div class="container" id="portfolio_section">
+    <div class="section_title">
+      <p>MY PORTFOLIO</p>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="portfolio-list">
+          <ul class="nav list-unstyled" id="portfolio-flters">
+            <li class="filter filter-active" data-filter=".all">All</li>
+            <li class="filter" data-filter=".editing">Video Editing</li>              
+            <li class="filter" data-filter=".branding">Brand Design</li> 
+            <li class="filter" data-filter=".animation">Adverts</li>             
+            <li class="filter" data-filter=".game">Game development</li>           
+            
+          </ul>
+        </div>
+
+        <div class="portfolio-container row">
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all editing animation">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/Audi.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Car advert CGI concept</h5>
+                <p class="card-text">Fully computer generated Audi commercial concept. Showcases 3D modeling and animation in Blender, combined with editing.</p>
+                <a href="p_Audi.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all animation editing">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/Coca.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Soda advert CGI concept</h5>
+                <p class="card-text">A Coca-Cola advert intended for social media use. Animated and rendered using Blender. Final edit completed in Premiere Pro.</p>
+                <a href="p_coca_cola.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding webdesign">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/AssetFin.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Company branding</h5>
+                <p class="card-text">Brand design for an accounting agency. A brand new logo combined with a business card, roll up banner and 3D mockups.</p>
+                <a href="p_AssetFin.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>  
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups editing ">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/Burger.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Instructional cooking video</h5>
+                <p class="card-text">A detailed "How to" video explaining the process of making the perfect hamburger. Showcases ability to effectively convey information.</p>
+                <a href="p_burger.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>      
+  
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all game ">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/Squidward.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Sinister Squidward</h5>
+                <p class="card-text">A horror/comedy experience crafted using the Unity engine. Played by thousands, including some of the biggest names on YouTube.</p>
+                <a href="p_sinister_squidward.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all game">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/School.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">School of the Dead</h5>
+                <p class="card-text">A short horror mystery game made using the Unity game engine. My first attempt at creating an engaging gaming experience.</p>
+                <a href="p_SchoolOfTheDead.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all animation editing branding">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/RoadReport.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Web App Animated Ad</h5>
+                <p class="card-text">Short animated video ad made to effectively demonstrate the usage of a web platform, presenting both the problem and its solution.</p>
+                <a href="p_RoadReport.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/Anpr.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ANPR System</h5>
+                <p class="card-text">A simple number plate detection system created in python. GUI assembled with the Custom Tkinter Python library.</p>
+                <a href="p_RoadReport.html" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding">
+            <div class="card mb-4">
+              <img class="card-img-top" src="images/portfolio/hercafe.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Promotional flyers</h5>
+                <p class="card-text">Promotional flyers crafted to enhance brand recognition and drive sales, designed to pique interest and showcase the product</p>
+                <a href="#" class="myButton">READ MORE</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End section portfolio -->
+
+<!-- Contact form -->
+  <section style="background-color: white;">
+    <span>
+      <p class="section_title" id="contact_form_section">CONTACT</p>
+    </span>
+    <div class="container">
+      <div class="row g-3" style="padding-bottom: 5%;">
+          <div class="col-sm-12 col-md-6">
+            <div id="contact_form_side_tex">
+              <h1 style="color: rgb(85, 85, 85)" >Get in touch</h1>
+              <ul>
+                <li>Sarajevo, Bosnia and Herzegovina</li>
+                <li>berin.surkovic@gmail.com</li>
+              </ul>          
+            </div>        
+          </div>
+          <div class="col">
+            <form class="row g-3 needs-validation" id="contact_form">
+              <div class="col-sm-12 col-md-6">                 
+                  <input type="text" class="form-control" placeholder="Your Name" aria-label="Name" required>                
+              </div>
+              <div class="col-sm-12 col-md-6">                  
+                  <input type="email" class="form-control" placeholder="E-Mail" required>
+              </div>
+              <div class="col-12">                  
+                  <textarea class="form-control" rows="3" placeholder="Message" required></textarea>
+              </div>
+              <div class="col-12" style="text-align: center;">
+                  <button class="btn btn-primary" type="submit">Submit</button>                 
+              </div>
+            </form>
+          </div>
+      </div>    
+    </div>
+  </section> 
+<!-- End contact form -->
+
+<!-- Footer -->
+  <div class="footer">
+    <div class="container"> 
+      <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">© 2024 Berin</p>
+    
+        <ul class="nav col-md-4 justify-content-center">
+          <li class="nav-item"><a href="https://www.youtube.com/channel/UCaigwy_dLCZ86BzrcU7tLTQ" class="nav-link px-2 text-muted" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a></li>
+          <li class="nav-item"><a href="https://github.com/BerinS" class="nav-link px-2 text-muted" target="_blank"><ion-icon name="logo-github" ></ion-icon></a></li>
+          <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>        
+        </ul>
+    
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#about_section" class="nav-link px-2 text-muted">About</a></li>
+          <li class="nav-item"><a href="#portfolio_section" class="nav-link px-2 text-muted">Portfolio</a></li>        
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- End of Footer -->
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade-in">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Form submitted successfully.</p>      
+    </div>
+  </div>
+
+
+  <!-- Ionic Icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+  <!-- Bootstrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <!-- Jquery  (Needed for Isotope Filtering) -->
+  <script src="lib/jquery/jquery.min.js"></script>
+
+  <!-- Isotope used for filtering-->
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+  
+  <!-- Tilt -->
+  <script src="lib/tilt/vanilla-tilt.min.js"></script>
 </body>
+
 </html>

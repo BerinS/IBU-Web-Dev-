@@ -1,0 +1,28 @@
+$primaryColor: #08aee0;
+$font-family: "Poppins", sans-serif;
+
+.myButton {
+  text-align: center;
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 17px;
+  color: #fff;
+  background-color: $primaryColor;
+  padding: 10px 30px;       
+  border-radius: 50px;
+  transition: 100ms;
+  transform: translateY(0);    
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    transition: 250ms;
+    padding: 10px 35px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: $primaryColor;
+    border: solid 1px $primaryColor;
+  }
+}
