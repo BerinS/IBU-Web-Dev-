@@ -6,10 +6,14 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/template_styles.css">
+
+    <!--Bootstrap, loaded dynamically-->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  
 
-
+    <link rel="stylesheet" href="toastr/toastr.css">
     <link rel="stylesheet" href="./spapp css/spapp.css">     
 
     <title>Berin Portfolio</title>
@@ -18,44 +22,6 @@
 
 
 <body>       
-
-  <!--
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
-    <div class="container d-flex justify-content-between">      
-        <div class="me-auto p-2 bd-highlight">
-          <a class="navbar-brand" href="#" id="berin_nav_text" style="font-size: 150%;">Berin</a>
-        </div>
-
-        <div class="p-2 bd-highlight">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">              
-              <li class="nav-item">
-                <a class="nav-link" href="#about_section">About</a>
-              </li>              
-              <li class="nav-item">
-                <a class="nav-link" href="#portfolio_section">
-                  Projects
-                </a>                
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#faq_section">FAQ</a>
-              </li>   
-              <li class="nav-item">
-                <a class="nav-link" href="#contact_form_section">Contact</a>
-              </li>
-              <li class="nav-item">
-                <ion-icon id="theme_button" name="sunny-outline" onclick="toggleTheme()"></ion-icon>
-              </li> 
-            </ul>
-          </div>
-        </div>       
-    </div>
-  </nav>
-  -->
-  
 
   <!-- start section navbar -->
   <nav id="main-nav">
@@ -121,11 +87,15 @@
       </div>
       <div class="col-md-6 d-flex justify-content-center align-items-center" >
           <div id="about_section_card" class="card" data-tilt data-tilt-max="8" data-tilt-speed="1000" data-tilt-scale="1.02">
+            <ion-icon name="create-outline" style="padding: 10px; font-size: 30px;" onclick="editAboutText()"></ion-icon>
+            <!-- Dynamically loaded
+
             <p class="about_title">About Me</p>
             <p id="about_text">
               Hello and welcome to my website! My name is Berin, and I'm a multimedia creator based in Sarajevo, Bosnia and Herzegovina. With years of experience working on many different  projects, I've honed my skills in video editing, graphic design, branding, and game development.
               Whether it's crafting compelling visual narratives through video, designing eye-catching graphics and logos, or developing immersive gaming experiences, I'm passionate about bringing ideas to life through my work.
             </p>
+            -->
           </div>        
       </div>      
   </div>
@@ -153,11 +123,11 @@
         </ul>
       </div>
 
-      <div class="portfolio-container row">
+      <div class="portfolio-container row" id="portfolio_container">
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all editing animation">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/Audi.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/Audi.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Car advert CGI concept</h5>
               <p class="card-text">Fully computer generated Audi commercial concept. Showcases 3D modeling and animation in Blender, combined with editing.</p>
@@ -168,7 +138,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all animation editing">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/Coca.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/Coca.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Soda advert CGI concept</h5>
               <p class="card-text">A Coca-Cola advert intended for social media use. Animated and rendered using Blender. Final edit completed in Premiere Pro.</p>
@@ -179,7 +149,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding webdesign">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/AssetFin.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/AssetFin.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Company branding</h5>
               <p class="card-text">Brand design for an accounting agency. A brand new logo combined with a business card, roll up banner and 3D mockups.</p>
@@ -190,7 +160,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups editing ">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/Burger.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/Burger.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Instructional cooking video</h5>
               <p class="card-text">A detailed "How to" video explaining the process of making the perfect hamburger. Showcases ability to effectively convey information.</p>
@@ -201,7 +171,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all game ">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/Squidward.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/Squidward.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Sinister Squidward</h5>
               <p class="card-text">A horror/comedy experience crafted using the Unity engine. Played by thousands, including some of the biggest names on YouTube.</p>
@@ -212,7 +182,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all game">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/School.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/School.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">School of the Dead</h5>
               <p class="card-text">A short horror mystery game made using the Unity game engine. My first attempt at creating an engaging gaming experience.</p>
@@ -223,7 +193,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all animation editing branding">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/RoadReport.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/RoadReport.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Web App Animated Ad</h5>
               <p class="card-text">Short animated video ad made to effectively demonstrate the usage of a web platform, presenting both the problem and its solution.</p>
@@ -234,7 +204,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/Anpr.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/Anpr.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">ANPR System</h5>
               <p class="card-text">A simple number plate detection system created in python. GUI assembled with the Custom Tkinter Python library.</p>
@@ -245,7 +215,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding">
           <div class="card mb-4">
-            <img class="card-img-top" src="images/portfolio/hercafe.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/portfolio/hercafe.jpg" alt="Card image cap" onclick="openModal(this)">
             <div class="card-body">
               <h5 class="card-title">Promotional flyers</h5>
               <p class="card-text">Promotional flyers crafted to enhance brand recognition and drive sales, designed to pique interest and showcase the product</p>
@@ -253,12 +223,16 @@
             </div>
           </div>
         </div>
+
+      
       </div>
     </div>
   </div>
 </div>
 <!-- End section portfolio -->
 
+
+  
   
 <!-- Spapp -->
 <section id="pageContent">
@@ -270,7 +244,6 @@
 </section>
 
  
-
 <!-- Contact form -->
 <section style="background-color: white;">
   <span>
@@ -278,35 +251,47 @@
   </span>
   <div class="container">
     <div class="row g-3" style="padding-bottom: 5%;">
-        <div class="col-sm-12 col-md-6">
-          <div id="contact_form_side_tex">
-            <h1 style="color: rgb(85, 85, 85)" >Get in touch</h1>
-            <ul>
-              <li>Sarajevo, Bosnia and Herzegovina</li>
-              <li>berin.surkovic@gmail.com</li>
-            </ul>          
-          </div>        
+      <div class="col-sm-12 col-md-6">
+        <div id="contact_form_side_tex">
+          <h1 style="color: rgb(85, 85, 85)">Get in touch</h1>
+          <ul>
+            <li>Sarajevo, Bosnia and Herzegovina</li>
+            <li>berin.surkovic@gmail.com</li>
+          </ul>
         </div>
-        <div class="col">
-          <form class="row g-3 needs-validation" id="contact_form">
-            <div class="col-sm-12 col-md-6">                 
-                <input type="text" class="form-control" placeholder="Your Name" aria-label="Name" required>                
-            </div>
-            <div class="col-sm-12 col-md-6">                  
-                <input type="email" class="form-control" placeholder="E-Mail" required>
-            </div>
-            <div class="col-12">                  
-                <textarea class="form-control" rows="3" placeholder="Message" required></textarea>
-            </div>
-            <div class="col-12" style="text-align: center;">
-                <button class="btn btn-primary" type="submit">Submit</button>                 
-            </div>
-          </form>
-        </div>
-    </div>    
+      </div>
+      <div class="col" id="contact_form_column">
+        <form class="row g-3" id="contact_form" autocomplete="off" method="POST" style="visibility: visible;">
+          <div class="col-sm-12 col-md-6">
+            <label for="firstname"></label>
+            <input type="text" class="form-control" id="firstname" placeholder="First Name" aria-label="First Name" name="firstname">
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <label for="lastname"></label>
+            <input type="text" class="form-control" id="lastname" placeholder="Last Name" aria-label="Last Name" name="lastname">
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <label for="email"></label>
+            <input type="email" class="form-control" id="email" placeholder="E-Mail" name="email">
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <label for="date"></label>
+            <input type="date" class="form-control" id="date" name="date" placeholder="Date for a meeting">
+          </div>
+          <div class="col-12">
+            <label for="message"></label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Your message" name="message"></textarea>
+          </div>          
+          <div class="col-12" style="text-align: center;">
+            <button class="btn btn-primary" type="submit" value="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</section> 
+</section>
 <!-- End contact form -->
+
 
 <!-- Footer -->
   <div class="footer">
@@ -331,10 +316,12 @@
 <!-- End of Footer -->
 
   <!-- Modal -->
-  <div id="myModal" class="modal fade-in">
+  <div id="galleryModal" class="modal fade-in">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Form submitted successfully.</p>      
+      <div id="modal_content">
+
+      </div>      
     </div>
   </div>
 
@@ -362,11 +349,26 @@
   <script src="./js spapp/jquery.spapp.js"></script>
   
   <!-- Custom Script -->
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
+
   
   <!-- Tilt -->
   <script src="lib/tilt/vanilla-tilt.min.js"></script>
+
+  <!-- Jquery form validation-->	
+    <script src= 
+  "https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"> 
+    </script> 
+    <script src= 
+  "https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"> 
+    </script> 
+  <script src="scripts/jquery_form_validation.js"></script>
   
+  <!-- Toastr notifications-->	
+  <script src="toastr/toastr.js"></script>
+
+  <!--Card Fetching Script-->
+  <script src="scripts/card_fetch.js"></script>
   
 </body>
 

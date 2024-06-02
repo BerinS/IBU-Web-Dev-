@@ -58,39 +58,55 @@ function submitForm(){
 };
 
 // ========================================================================= //
-//  Modal
+//  Gallery Modal
 // ========================================================================= //
-
-document.getElementById("contact_form").addEventListener("submit", function(event) {
-  event.preventDefault(); 
-  if (this.checkValidity()) {
-      openModal();
-  }
-  this.classList.add('was-validated'); 
-});
-
-function openModal() {
+function openModal(imgElement) {
+  console.log('openModal ran');
   
-  console.log('Form Submitted');
-
-  var modal = document.getElementById("myModal");
-
-  var span = document.getElementsByClassName("close")[0];
-
-  modal.style.display = "block";
-
-  span.onclick = function () {
-    modal.style.display = "none";
-    location.reload();
-  }
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      location.reload();
-    }
+  // Extract image source from imgElement
+  let imageSrc = imgElement.src;
+  
+  // Get modal elements
+  let modal = document.getElementById("galleryModal");
+  let span = document.getElementsByClassName("close")[0];
+  let modalContent = document.getElementById("modal_content");
+  
+  // Get the parent card element of the clicked image
+  let parentCard = imgElement.closest('.card');
+  
+  if (parentCard) {
+      // Extract text content from card elements
+      let title = parentCard.querySelector('.card-title').textContent;
+      let description = parentCard.querySelector('.card-text').textContent;
+      
+      // Set modal display to block
+      modal.style.display = "block";
+      
+      // Set modal content (image and text)
+      modalContent.innerHTML = `
+          <img class="card-img-top" src="${imageSrc}" alt="Card image cap">
+          <div class="card-body">
+              <h5 class="card-title" style="text-align:center; font-weight:bold">${title}</h5>
+              <p class="card-text">${description}</p>
+          </div>
+      `;
+      
+      // Close modal when span is clicked
+      span.onclick = function () {
+          modal.style.display = "none";
+      };
+      
+      // Close modal when clicking outside of modal content
+      window.onclick = function (event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      };
+  } else {
+      console.error('Parent card not found');
   }
 }
+
 
 // ========================================================================= //
 //  Theme switcher
@@ -144,4 +160,35 @@ function toggleTheme(){
   });
 
 
-  
+  // ========================================================================= //
+  //  /Edit functionality
+  // ========================================================================= //
+
+  function editAboutText(title){
+    console.log("Edit started");
+
+    // Get modal elements
+    let modal = document.getElementById("galleryModal");
+    let span = document.getElementsByClassName("close")[0];
+    let modalContent = document.getElementById("modal_content");
+
+    // Set modal display to block
+    modal.style.display = "block";
+      
+    // Set modal content (image and text)
+    modalContent.innerHTML = `
+        ${document.getElementById('about_text').textContent}
+    `;
+    
+    // Close modal when span is clicked
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
+    
+    // Close modal when clicking outside of modal content
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+  }
