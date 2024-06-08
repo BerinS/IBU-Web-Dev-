@@ -3,7 +3,7 @@ import LeftPartList from './LeftPartList';
 import PC_Scheme from './pc_scheme';
 import './LeftSection.css';
 
-function LeftSection({ assignCurrentComponent, selectedItem }) {
+function LeftSection({ assignCurrentComponent, selectedItem, setSelectedItem , currentComponent }) {
   return (
     <div className="left-section">   
       <PC_Scheme />
@@ -11,7 +11,7 @@ function LeftSection({ assignCurrentComponent, selectedItem }) {
         <h1>Choose your PC parts:</h1>
       </div>
       
-      <LeftPartList assignCurrentComponent={assignCurrentComponent} selectedItem={selectedItem}/>
+      <LeftPartList assignCurrentComponent={assignCurrentComponent} selectedItem={selectedItem} setSelectedItem={setSelectedItem} currentComponent={currentComponent}/>
       
     </div>
   );

@@ -4,20 +4,14 @@ import './BuildSection.css';
 import LeftSection from './LeftSection.js';
 import RightSection from './RightSection.js';
 import RightPartList from './RightPartList.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function BuildSection() {  
 
   const [curComponent, setCurrentComponent] = useState('...');
-  const [selectedItem, setSelectedItem] = useState({
-    CPU: null,
-    GPU: null,
-    Motherboard: null,
-    RAM: null,
-    Case: null,
-    PSU: null,
-    Storage: null,
-  });
+  const [selectedItem, setSelectedItem] = useState('');
 
   const assignCurrentComponent = (component) => {
     setCurrentComponent(component);
@@ -27,12 +21,35 @@ function BuildSection() {
   const handleAddItem = (name, price) => {
     console.log('Adding item:', name, price);
     setSelectedItem({ name, price });
+    toast.success('Item added!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",      
+      });
+      
   };
 
   return (
     <div className="build-section">
-      <LeftSection assignCurrentComponent={assignCurrentComponent} selectedItem={selectedItem} />
+      <LeftSection assignCurrentComponent={assignCurrentComponent} selectedItem={selectedItem} currentComponent={curComponent}/>
       <RightSection currentComponent={curComponent} onAddItem={handleAddItem}/>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="light"       
+        />
     </div>
   );
 }

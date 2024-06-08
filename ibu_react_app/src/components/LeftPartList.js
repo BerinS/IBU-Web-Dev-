@@ -1,141 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Button from '@mui/material/Button';
 import './LeftPartList.css';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
+import random from 'random';
 
 
+function LeftPartList({ assignCurrentComponent, selectedItem, currentComponent }) {
+  let store = '.......';
+  const stores = ['Amazon.com', 'Ebay.com', 'NewEgg.com', 'Target.com'];
+  const [components, setComponents] = useState({
+    CPU: { name: 'CPU', price: '$$$' },
+    GPU: { name: 'GPU', price: '$$$' },
+    Motherboard: { name: 'Motherboard', price: '$$$' },
+    'RAM Kit': { name: 'RAM Kit', price: '$$$' },
+    Case: { name: 'Case', price: '$$$' },
+    PSU: { name: 'PSU', price: '$$$' },
+    Storage: { name: 'Storage', price: '$$$' },
+  });
 
-function LeftPartList({ assignCurrentComponent, selectedItem })  {
+  const previousSelectedItem = useRef(selectedItem);
+
+  useEffect(() => {
+    if (selectedItem && currentComponent) {
+      if (selectedItem.name !== previousSelectedItem.current.name || selectedItem.price !== previousSelectedItem.current.price) {
+        setComponents((prevComponents) => ({
+          ...prevComponents,
+          [currentComponent]: { name: selectedItem.name, price: selectedItem.price,  store: random.choice(stores)},
+          
+        }));        
+      }
+      previousSelectedItem.current = selectedItem;
+    }
+  }, [selectedItem, currentComponent]);
+
   return (
     <div className="left-part-list">
-        <ul>  
+      <ul>
         <li className='list_item_meaning'>
+          <div className='list_item_content'>
+            <p>Component</p>
+          </div>
+          <div className='list_item_content'>
+            <p>Price</p>
+          </div>
+          <div className='list_item_content'>
+            <p>Where?</p>
+          </div>
+          <div className='list_item_content'>
+            <p>Add</p>
+          </div>
+        </li>
+        {Object.keys(components).map((componentKey) => (
+          <li key={componentKey} className='list_item'>
             <div className='list_item_content'>
-                <p>Component</p>
+              <p>{components[componentKey].name}</p>
             </div>
             <div className='list_item_content'>
-              <p>Price</p>
+              <p>{components[componentKey].price}</p>
             </div>
             <div className='list_item_content'>
-              <p>Where?</p>
+              <p>{components[componentKey].store}</p>
             </div>
             <div className='list_item_content'>
-              <p>Add</p>
-            </div>
-          </li>        
-          <li className='list_item'>
-            <div className='list_item_content'>
-                <p>
-                  {selectedItem ? (<p>{selectedItem.name}</p>):('CPU')}
-                </p>
-            </div>
-            <div className='list_item_content'>
-                <p>
-                  {selectedItem ? (<p>{selectedItem.price}</p>):('$$$')}
-                </p>
-            </div>
-            <div className='list_item_content'>
-              <p>....</p>
-            </div>
-            <div className='list_item_content'>
-              <Button variant="contained" onClick={() => assignCurrentComponent('CPU')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
+              <Button variant="contained" onClick={() => assignCurrentComponent(componentKey)}>
+                ADD <AddCircleOutlineIcon fontSize='small' />
+              </Button>
             </div>
           </li>
-          <li className='list_item'>
-              <div className='list_item_content'>
-              <p>
-                  {selectedItem ? (<p>{selectedItem.name}</p>):('GPU')}
-                </p>
-              </div>
-              <div className='list_item_content'>
-              <p>
-                  {selectedItem ? (<p>{selectedItem.price}</p>):('$$$')}
-                </p>
-              </div>
-              <div className='list_item_content'>
-                <p>....</p>
-            </div>
-            <div className='list_item_content'>
-              <Button variant="contained" onClick={() => assignCurrentComponent('GPU')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
-            </div>
-          </li>
-          <li className='list_item'>
-              <div className='list_item_content'>
-                  <p>Mobo</p>
-              </div>
-              <div className='list_item_content'>
-                <p>$$$</p>
-              </div>
-              <div className='list_item_content'>
-                <p>....</p>
-              </div>
-              <div className='list_item_content'>
-                <Button variant="contained" onClick={() => assignCurrentComponent('Motherboard')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
-              </div>
-          </li>
-          <li className='list_item'>
-              <div className='list_item_content'>
-                  <p>RAM</p>
-              </div>
-              <div className='list_item_content'>
-                <p>$$$</p>
-              </div>
-              <div className='list_item_content'>
-                <p>....</p>
-              </div>
-              <div className='list_item_content'>
-                <Button variant="contained" onClick={() => assignCurrentComponent('RAM Kit')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
-              </div>            
-          </li>
-          <li className='list_item'>
-              <div className='list_item_content'>
-                  <p>Case</p>
-              </div>
-              <div className='list_item_content'>
-                <p>$$$</p>
-              </div>
-              <div className='list_item_content'>
-                <p>....</p>              
-              </div>
-              <div className='list_item_content'>
-                <Button variant="contained" onClick={() => assignCurrentComponent('Case')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
-              </div>
-          </li>
-          <li className='list_item'>
-              <div className='list_item_content'>
-                  <p>PSU</p>
-              </div>
-              <div className='list_item_content'>
-                <p>$$$</p>
-              </div>
-              <div className='list_item_content'>
-                <p>....</p>
-              </div>
-              <div className='list_item_content'>
-                <Button variant="contained" onClick={() => assignCurrentComponent('PSU')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
-              </div>
-          </li>
-          <li className='list_item'>
-              <div className='list_item_content'>
-                  <p>Storage</p>
-              </div>
-              <div className='list_item_content'>
-                <p>$$$</p>
-              </div>
-              <div className='list_item_content'>
-                <p>....</p>
-              </div>
-              <div className='list_item_content'>
-                <Button variant="contained" onClick={() => assignCurrentComponent('Storage')}>ADD <AddCircleOutlineIcon fontSize='small'/></Button>
-              </div>
-          </li>
-        </ul>      
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default LeftPartList;
-
-
