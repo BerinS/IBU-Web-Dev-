@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import random from 'random';
 
 
-function LeftPartList({ assignCurrentComponent, selectedItem, currentComponent }) {
+function LeftPartList({ assignCurrentComponent, selectedItem, currentComponent, setTotalPrice }) {
   let store = '.......';
   const stores = ['Amazon.com', 'Ebay.com', 'NewEgg.com', 'Target.com'];
   const [components, setComponents] = useState({
@@ -32,6 +32,21 @@ function LeftPartList({ assignCurrentComponent, selectedItem, currentComponent }
       previousSelectedItem.current = selectedItem;
     }
   }, [selectedItem, currentComponent]);
+
+  useEffect(() => {
+    // Calculate total price dynamically
+    const total = Object.values(components).reduce((acc, component) => {
+      // Extract numeric part of price string
+      const numericPrice = parseFloat(component.price.replace(/[^\d.]/g, ''));
+      // Check if price is a valid number
+      if (!isNaN(numericPrice)) {
+        return acc + numericPrice;
+      }
+      return acc;
+    }, 0);
+    setTotalPrice(total);
+    console.log('Total Price:', total);
+  }, [components, setTotalPrice]);
 
   return (
     <div className="left-part-list">

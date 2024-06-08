@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 97%; 
+  height: 100%; 
   width: 97%; 
   margin-top: 10px;
   margin-bottom: 20px;   
@@ -14,6 +14,6 @@
 }
 
 .pc_scheme img {
-  width: 50%;
+  width: 40%;
   height: auto;
 }

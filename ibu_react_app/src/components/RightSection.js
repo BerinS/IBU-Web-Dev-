@@ -8,11 +8,12 @@ import RAM_Database from '../data/memory.json';
 import Case_Database from '../data/case.json'; 
 import PSU_Database from '../data/power-supply.json'; 
 import Storage_Database from '../data/internal-hard-drive.json'; 
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 
-function RightSection({ currentComponent, onAddItem  }) {
+function RightSection({ currentComponent, onAddItem, totalPrice }) {
   const [items, setItems] = useState([]);
   const ENTRIES_LIMIT = 500;
+
 
   useEffect(() => {
     // Fetch data only if currentComponent is 'CPU'
@@ -144,6 +145,12 @@ function RightSection({ currentComponent, onAddItem  }) {
         <Grid item xs={12}>
           <div className='right_part_list_container'>
             <RightPartList items={items}  onAdd={onAddItem}/>
+          </div>
+        </Grid>
+        <Grid item xs={12}>
+          <div className = 'count'>
+            <h1>Total Price: </h1>
+            <h2>{totalPrice + '$'} </h2>
           </div>
         </Grid>
       </Grid>

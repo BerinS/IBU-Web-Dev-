@@ -6,16 +6,21 @@ import RightSection from './RightSection.js';
 import RightPartList from './RightPartList.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LeftPartList from './LeftPartList.js';
 
 
 function BuildSection() {  
 
   const [curComponent, setCurrentComponent] = useState('...');
   const [selectedItem, setSelectedItem] = useState('');
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  console.log("Total Price from Build Section: " + totalPrice);
 
   const assignCurrentComponent = (component) => {
     setCurrentComponent(component);
     console.log('Currently viewing: ' + component);
+   
   };
 
   const handleAddItem = (name, price) => {
@@ -36,8 +41,8 @@ function BuildSection() {
 
   return (
     <div className="build-section">
-      <LeftSection assignCurrentComponent={assignCurrentComponent} selectedItem={selectedItem} currentComponent={curComponent}/>
-      <RightSection currentComponent={curComponent} onAddItem={handleAddItem}/>
+      <LeftSection assignCurrentComponent={assignCurrentComponent} selectedItem={selectedItem} currentComponent={curComponent} setTotalPrice={setTotalPrice}/>
+      <RightSection currentComponent={curComponent} onAddItem={handleAddItem} totalPrice={totalPrice}/>
       <ToastContainer
         position="top-right"
         autoClose={3000}

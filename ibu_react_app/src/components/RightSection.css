@@ -23,3 +23,15 @@
   overflow-y: auto;
   border-bottom: 1px solid rgb(189, 189, 189);
 }
+
+.count{
+  background-color: white;
+  margin: 2%;
+  padding: 3%;
+  border-radius: 30px;
+  border: 1px solid rgb(231, 231, 231);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
