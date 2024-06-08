@@ -1,0 +1,19 @@
+.pc_scheme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97%; 
+  width: 97%; 
+  margin-top: 10px;
+  margin-bottom: 20px;   
+  background-color: #FFFFFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='17' height='17' fill='%23E3E3E3'/%3E%3C/svg%3E");
+  border-radius: 30px;
+  border: 1px solid rgb(231, 231, 231);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.pc_scheme img {
+  width: 50%;
+  height: auto;
+}

@@ -1,0 +1,25 @@
+.right-section {
+  background-color: rgb(255, 255, 255);
+  padding: 0px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.right_heading {
+  position: sticky; 
+  top: 0;
+  background-color: white;
+  padding: 20px; 
+  width: 100%; 
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  z-index: 1;
+}
+
+.right_part_list_container{
+  background-color: rgb(255, 255, 255);
+  max-height: 70vh;
+  overflow-y: auto;
+  border-bottom: 1px solid rgb(189, 189, 189);
+}
