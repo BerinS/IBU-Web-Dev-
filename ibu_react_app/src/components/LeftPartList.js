@@ -34,11 +34,11 @@ function LeftPartList({ assignCurrentComponent, selectedItem, currentComponent, 
   }, [selectedItem, currentComponent]);
 
   useEffect(() => {
-    // Calculate total price dynamically
+    // We calc total price
     const total = Object.values(components).reduce((acc, component) => {
-      // Extract numeric part of price string
+      // Extract number
       const numericPrice = parseFloat(component.price.replace(/[^\d.]/g, ''));
-      // Check if price is a valid number
+      
       if (!isNaN(numericPrice)) {
         return acc + numericPrice;
       }

@@ -16,10 +16,9 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
 
 
   useEffect(() => {
-    // Fetch data only if currentComponent is 'CPU'
     if (currentComponent === 'CPU') {
       const fetchData = () => {
-        // Simulate a delay for data fetching
+        
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = CPU_Database.slice(0, ENTRIES_LIMIT).map(cpu_record => ({
@@ -28,14 +27,14 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: cpu_record.boost_clock + ' GHz' 
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData();
     } 
     else if (currentComponent === 'GPU'){
       const fetchData = () => {
-        // Simulate a delay for data fetching
+        
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = GPU_Database.slice(0, ENTRIES_LIMIT).map(gpu_record => ({
@@ -44,14 +43,14 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: 'VRAM ' +  gpu_record.memory + ' GB'
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData()
     }
     else if (currentComponent === 'Motherboard'){
       const fetchData = () => {
-        // Simulate a delay for data fetching
+        
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = MOBO_Database.slice(0, ENTRIES_LIMIT).map(mobo_record => ({
@@ -60,14 +59,14 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: mobo_record.form_factor 
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData()
     }
     else if (currentComponent === 'RAM Kit'){
       const fetchData = () => {
-        // Simulate a delay for data fetching
+        
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = RAM_Database.slice(0, ENTRIES_LIMIT).map(ram_record => ({
@@ -76,14 +75,14 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: ram_record.speed + ' MHz'
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData()
     }
     else if (currentComponent === 'Case'){
       const fetchData = () => {
-        // Simulate a delay for data fetching
+        
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = Case_Database.slice(0, ENTRIES_LIMIT).map(case_record => ({
@@ -92,14 +91,14 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: case_record.type
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData()
     }
     else if (currentComponent === 'PSU'){
       const fetchData = () => {
-        // Simulate a delay for data fetching
+        
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = PSU_Database.slice(0, ENTRIES_LIMIT).map(psu_record => ({
@@ -108,14 +107,13 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: psu_record.wattage + ' W'
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData()
     }
     else if (currentComponent === 'Storage'){
       const fetchData = () => {
-        // Simulate a delay for data fetching
         setTimeout(() => {
           // Filter or fetch data based on currentComponent
           const filteredData = Storage_Database.slice(0, ENTRIES_LIMIT).map(storage_record => ({
@@ -124,13 +122,12 @@ function RightSection({ currentComponent, onAddItem, totalPrice }) {
             specification: storage_record.capacity + ' GB ' + storage_record.type
           }));
           setItems(filteredData);
-        }, 400); // Simulate a delay of 400ms
+        }, 400); 
       };
 
       fetchData()
     }
     else {
-      // Clear items if currentComponent is not 'CPU'
       setItems([]);
     }
   }, [currentComponent]);
